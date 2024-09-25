@@ -1,0 +1,29 @@
+<!-- blog/templates/blog/add_article.html -->
+
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>添加文章</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <div>
+        <label for="id_title">标题:</label>
+        {{ form.title }}
+    </div>
+
+    <div>
+        <label for="id_content">内容 (支持Markdown格式):</label>
+        {{ form.content }}  <!-- 用户将输入 Markdown 格式的内容 -->
+    </div>
+
+    <div>
+        <label for="id_tags">标签 (可选):</label>
+        {{ form.tags }}  <!-- 可选标签 -->
+    </div>
+
+    <button type="submit">提交文章</button>
+</form>
+
+{% endblock %}

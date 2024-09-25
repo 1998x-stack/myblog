@@ -1,0 +1,44 @@
+{% extends 'blog/base.html' %}  <!-- Extends the base layout -->
+
+{% block content %}
+    <h2>添加评论</h2>
+
+    <form method="post" class="comment-form">
+        {% csrf_token %}  <!-- CSRF protection token -->
+
+        <!-- Display form validation errors if any -->
+        <!-- {% if form.errors %}
+            <div class="alert alert-danger" role="alert">
+                请修正以下错误后再提交:
+                <ul>
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %} -->
+
+        <!-- Form field rendering -->
+        <!-- <div class="form-group">
+            <label for="id_visitor_name">昵称</label>
+            {{ form.visitor_name }}
+        </div> -->
+
+        <div class="form-group">
+            <label for="id_content">评论内容</label>
+            {{ form.content }}  <!-- Render the comment content field -->
+        </div>
+
+        <!-- <div class="form-group">
+            <label for="id_captcha">验证码</label>
+            {{ form.captcha }} 
+        </div> -->
+
+        <!-- Submit button -->
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">提交评论</button>
+        </div>
+    </form>
+{% endblock %}

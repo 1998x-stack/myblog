@@ -1,0 +1,51 @@
+<!-- blog/templates/blog/base.html -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的博客</title>
+    {% load static %}
+
+    <!-- 加载自定义的 CSS 文件 -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- 引入 Google Fonts (例如数学字体) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Math&display=swap">
+
+    <!-- 引入 highlight.js 样式用于代码高亮 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+
+    <!-- 引入 MathJax 脚本，用于渲染 LaTeX 数学公式 -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'article_list' %}">我的博客</a></h1>
+        <nav>
+            <form action="{% url 'search' %}" method="get">
+                <input type="text" name="q" placeholder="搜索文章...">
+                <button type="submit">搜索</button>
+            </form>
+        </nav>
+    </header>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <a href="{% url 'add_article' %}" class="btn-custom">添加文章</a>
+
+    <footer>
+        <p>&copy; 2023 我的博客</p>
+    </footer>
+
+    <!-- 引入 highlight.js 脚本并启用代码高亮 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+</body>
+</html>

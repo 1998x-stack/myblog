@@ -1,0 +1,44 @@
+{% extends 'blog/base.html' %}  <!-- 继承基础布局 -->
+
+{% block content %}
+    <h2>搜索结果</h2>
+
+    <!-- 显示搜索关键字 -->
+    {% if query %}
+        <p>您搜索的关键字是: <strong>{{ query }}</strong></p>
+    {% else %}
+        <p>您未输入搜索关键字，显示所有文章:</p>
+    {% endif %}
+
+    <!-- 搜索结果列表 -->
+    {% if page_obj %}
+        <ul>
+            {% for article in page_obj %}
+                <li>
+                    <a href="{% url 'article_detail' article.object.pk %}">{{ article.object.title }}</a>
+                    <p>发布日期: {{ article.object.publish_date }}</p>
+                    <p>{{ article.object.content|truncatewords:20 }}</p> <!-- 显示前 20 个单词的内容 -->
+                </li>
+            {% endfor %}
+        </ul>
+
+        <!-- 分页控件 -->
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?q={{ query }}&page=1&per_page={{ per_page }}">第一页</a>
+                    <a href="?q={{ query }}&page={{ page_obj.previous_page_number }}&per_page={{ per_page }}">上一页</a>
+                {% endif %}
+
+                <span>第 {{ page_obj.number }} 页，共 {{ page_obj.paginator.num_pages }} 页</span>
+
+                {% if page_obj.has_next %}
+                    <a href="?q={{ query }}&page={{ page_obj.next_page_number }}&per_page={{ per_page }}">下一页</a>
+                    <a href="?q={{ query }}&page={{ page_obj.paginator.num_pages }}&per_page={{ per_page }}">最后一页</a>
+                {% endif %}
+            </span>
+        </div>
+    {% else %}
+        <p>没有找到相关内容。</p>
+    {% endif %}
+{% endblock %}

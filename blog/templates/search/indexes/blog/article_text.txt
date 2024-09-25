@@ -1,0 +1,6 @@
+# templates/search/indexes/blog/article_text.txt
+
+{{ object.title }}
+{{ object.summary }}
+{{ object.content }}
+{{ object.tags.all|join:", " }}  <!-- 将 tags 字段转换为字符串 -->

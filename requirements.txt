@@ -1,0 +1,7 @@
+Django==4.2
+django-haystack==3.0
+Whoosh==2.7.4
+django-simple-captcha==0.5.14
+django-tailwind
+django-markdownify
+Pygments

@@ -1,0 +1,181 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f7;
+    background: linear-gradient(270deg, #e6e6e6, #f2f2f2);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite; /* 动态渐变背景 */
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+header, footer {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 a {
+    text-decoration: none;
+    color: #1d1d1f;
+}
+
+nav form {
+    margin-top: 10px;
+}
+
+.content {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+
+.article-content {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.article-list .article-item {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.article-list .article-item h2 a {
+    text-decoration: none;
+    color: #0071e3;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#comments, #add-comment {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.comment {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.comment-input:focus {
+    border-color: #007BFF; /* 焦点时边框颜色 */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3); /* 焦点时的阴影效果 */
+    outline: none; /* 去除默认的焦点外框 */
+}  
+
+/* Custom CSS for buttons */
+.btn-custom {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #0056b3;
+}
+
+button {
+    padding: 10px 15px; /* 内边距 */
+    background-color: #007BFF; /* 按钮背景颜色 */
+    color: white; /* 按钮文字颜色 */
+    border: none; /* 去除边框 */
+    border-radius: 5px; /* 按钮圆角 */
+    cursor: pointer; /* 鼠标悬停时显示为指针 */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* 增加过渡效果 */
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* 鼠标悬停时的背景色 */
+  }
+  
+  button:active {
+    transform: scale(0.98); /* 按下时稍微缩小 */
+  }
+
+  
+  /* Custom CSS for alerts */
+  .alert {
+    padding: 1rem; /* 内边距 */
+    border-radius: 5px; /* 圆角 */
+    margin-bottom: 1rem; /* 下边距 */
+    font-size: 1em; /* 字体大小 */
+  }
+  
+  .alert-success {
+    background-color: #d4edda; /* 背景颜色 */
+    color: #155724; /* 文字颜色 */
+    border: 1px solid #c3e6cb; /* 边框颜色 */
+  }
+  
+  .alert-danger {
+    background-color: #f8d7da; /* 背景颜色 */
+    color: #721c24; /* 文字颜色 */
+    border: 1px solid #f5c6cb; /* 边框颜色 */
+  }
+  
+
+/* Custom CSS for form elements */
+input[type="text"],
+textarea {
+  width: 100%; /* 宽度为100% */
+  padding: 0.75rem; /* 内边距 */
+  margin-bottom: 1rem; /* 下边距 */
+  font-size: 1em; /* 字体大小 */
+  border: 1px solid #ccc; /* 边框颜色 */
+  border-radius: 5px; /* 边框圆角 */
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); /* 内部阴影 */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* 动态效果 */
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #007BFF; /* 焦点时边框颜色 */
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3); /* 焦点时的阴影 */
+  outline: none; /* 去除默认的焦点外框 */
+}
+
+
+/* 针对小屏幕的代码块滚动优化 */
+pre {
+    white-space: pre-wrap; /* 自动换行 */
+    word-wrap: break-word; /* 单词折行 */
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px; /* 更小的内边距 */
+    }
+  
+    pre {
+      font-size: 0.9em; /* 在小屏幕上减小代码块字体大小 */
+    }
+  
+    table {
+      font-size: 0.9em; /* 在小屏幕上减小表格的字体大小 */
+    }
+  }
+  

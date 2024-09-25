@@ -1,0 +1,46 @@
+{% extends 'blog/base.html' %}
+{% load markdownify %}
+
+{% block content %}
+    <article>
+        <h2>{{ article.title }}</h2>
+
+        <!-- 渲染 Markdown 内容，带 LaTeX 和代码高亮 -->
+        <div class="article-content">
+            {{ article.content|markdownify|safe }}
+        </div>
+
+        <p>发布时间：{{ article.publish_date }}</p>
+
+        <p>标签：
+            {% for tag in article.tags.all %}
+                <span>{{ tag.name }}</span>
+            {% empty %}
+                无标签
+            {% endfor %}
+        </p>
+    </article>
+
+    <!-- 评论部分 -->
+    <section id="comments">
+        <h3>评论</h3>
+        {% for comment in comments %}
+            <div class="comment">
+                <p><strong>{{ comment.visitor_name }}</strong> 于 {{ comment.publish_date }}</p>
+                <p>{{ comment.content }}</p>
+            </div>
+        {% empty %}
+            <p>还没有评论，快来抢沙发！</p>
+        {% endfor %}
+    </section>
+
+    <!-- 添加评论 -->
+    <section id="add-comment">
+        <h3>添加评论</h3>
+        <form action="{% url 'add_comment' article.pk %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-custom">提交评论</button>
+        </form>
+    </section>
+{% endblock %}
