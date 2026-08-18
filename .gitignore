@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.venv/
+env/
+venv/
+
+# Django
+*.sqlite3
+staticfiles/
+whoosh_index/
+media/
+
+# misc
+.DS_Store
+*.log
